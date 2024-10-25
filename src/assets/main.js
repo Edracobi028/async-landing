@@ -9,15 +9,12 @@ const options = {
 	}
 };
 
-//Referencia a Html donde insertamos el template
-const content = null || document.getElementById('content');
+const content = null || document.getElementById('content'); //Referencia a Html donde insertamos el template
 
-//funcion con async y await
-async function fetchData(urlApi) {
+async function fetchData(urlApi) { //funcion con async y await
 	const response = await fetch(urlApi, options); // pasar url y opciones con await
 	const data = await response.json(); //Transformar la info
 	return data; //return de los datos
-
 }
 
 //Funcion anonima de tipo Arrow Function que se invoca a si misma para ejecutar la logica
@@ -31,7 +28,7 @@ async function fetchData(urlApi) {
 				<div class="group relative">
 					<div
 						class="w-full bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:aspect-none">
-						<img src="${video.snippet.thumbnail.high.url}" alt="${video.snippet.description}" class="w-full">
+						<img src="${video.snippet.thumbnails.high.url}" alt="${video.snippet.description}" class="w-full">
 					</div>
 					<div class="mt-4 flex justify-between">
 						<h3 class="text-sm text-gray-700">
@@ -42,7 +39,9 @@ async function fetchData(urlApi) {
 				</div>
 			`).slice(0,4).join('')}
 		`;
-	} catch {
-
+		content.innerHTML = view; //insertar la vista que creamos
+	} catch (error) {
+		console.log(error);
+		//Window.alert(error);
 	}
 })();
