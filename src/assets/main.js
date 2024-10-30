@@ -1,6 +1,6 @@
 //Logica necesaria
 //API Youtube canal GNDX
-const API = 'https://youtube-v31.p.rapidapi.com/search?channelId=UCw05fUBPwmpu-ehXFMqfdMw&part=snippet%2Cid&order=date&maxResults=9';
+const API = 'https://youtube-v31.p.rapidapi.com/search?channelId=UCmanauSU6yQCFJfR_pp8Umg&part=snippet%2Cid&order=date&maxResults=3';
 const options = {
 	method: 'GET',
 	headers: {
@@ -31,7 +31,7 @@ async function fetchData(urlApi) { //funcion con async y await
 						<img src="${video.snippet.thumbnails.high.url}" alt="${video.snippet.description}" class="w-full">
 					</div>
 					<div class="mt-4 flex justify-between">
-						<h3 class="text-sm text-gray-700">
+						<h3 class="text-sm text-gray-400">
 						<span aria-hidden="true" class="absolute inset-0"></span>
 						${video.snippet.title}
 						</h3>
